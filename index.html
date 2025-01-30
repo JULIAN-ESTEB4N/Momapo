@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>San Valentín</title>
+  <style>
+    body {
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      background-color: #ffebf3;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .container {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    h1 {
+      font-size: 3rem;
+      color: #e91e63;
+      margin-bottom: 20px;
+    }
+
+    .decorated-text {
+      font-size: 2rem;
+      color: #ff5722;
+      position: relative;
+    }
+
+    .decorated-text::before,
+    .decorated-text::after {
+      content: '🐥';
+      font-size: 2rem;
+      position: absolute;
+      top: -20px;
+    }
+
+    .decorated-text::before {
+      left: -40px;
+    }
+
+    .decorated-text::after {
+      right: -40px;
+    }
+
+    .buttons {
+      margin-top: 20px;
+    }
+
+    button {
+      font-size: 1.5rem;
+      padding: 10px 20px;
+      margin: 10px;
+      border: none;
+      border-radius: 10px;
+      background-color: #e91e63;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #c2185b;
+    }
+
+    .message {
+      font-size: 2rem;
+      color: #4caf50;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <button id="openButton">Abrir Momapo</button>
+
+    <div id="content" class="hidden">
+      <h1>San Valentín</h1>
+      <div class="decorated-text">
+        ¿Quieres ser mi San Valentín? 🐣
+      </div>
+      <div class="buttons">
+        <button id="yesButton1">Sí</button>
+        <button id="yesButton2">Sí</button>
+      </div>
+      <div id="message" class="hidden message">¡Te amo! 🐣❤️</div>
+    </div>
+  </div>
+
+  <script>
+    // Obtener elementos del DOM
+    const openButton = document.getElementById('openButton');
+    const content = document.getElementById('content');
+    const yesButton1 = document.getElementById('yesButton1');
+    const yesButton2 = document.getElementById('yesButton2');
+    const message = document.getElementById('message');
+
+    // Mostrar el contenido al hacer clic en "Abrir Momapo"
+    openButton.addEventListener('click', () => {
+      openButton.classList.add('hidden');
+      content.classList.remove('hidden');
+    });
+
+    // Mostrar el mensaje "Te amo" al hacer clic en cualquier botón "Sí"
+    const showMessage = () => {
+      message.classList.remove('hidden');
+    };
+
+    yesButton1.addEventListener('click', showMessage);
+    yesButton2.addEventListener('click', showMessage);
+  </script>
+
+</body>
+</html>
